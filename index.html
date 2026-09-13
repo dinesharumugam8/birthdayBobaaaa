@@ -1,0 +1,164 @@
+where should i paste it
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7efe4">
+  <meta name="description" content="A little birthday wish, made just for you.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Happy Birthday, Boba | A little surprise</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+    :root { --paper:#f7efe4; --ink:#2e2d2b; --muted:#77716a; --coral:#e66e58; --coral-dark:#bc4c3b; --yellow:#f3c96b; --pink:#f4c6b9; --line:rgba(46,45,43,.14); --shadow:0 26px 70px rgba(100,65,35,.14); }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; min-width:320px; color:var(--ink); background:radial-gradient(circle at 10% 12%,rgba(243,201,107,.28) 0 2px,transparent 3px),radial-gradient(circle at 92% 82%,rgba(230,110,88,.2) 0 3px,transparent 4px),var(--paper); background-size:29px 29px,43px 43px,auto; font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+    body::before,body::after { content:''; position:fixed; z-index:-1; border:1px solid rgba(230,110,88,.25); border-radius:50%; pointer-events:none; }
+    body::before { width:32vw; height:32vw; top:-13vw; right:-8vw; } body::after { width:24vw; height:24vw; bottom:-9vw; left:-8vw; border-color:rgba(243,201,107,.44); }
+    .page-shell { width:min(1120px,calc(100% - 48px)); margin:0 auto; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; padding:28px 0; animation:rise .8s ease both; }
+    .monogram { font-family:'Playfair Display',serif; font-size:1.35rem; font-style:italic; } .tiny-note { color:var(--muted); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; }
+    main { min-height:calc(100vh - 92px); display:grid; align-items:center; padding:42px 0 86px; }
+    .hero { display:grid; grid-template-columns:1fr 1.02fr; gap:clamp(48px,8vw,118px); align-items:center; }
+    .eyebrow { display:inline-flex; gap:10px; align-items:center; color:var(--coral-dark); font-size:.73rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; } .eyebrow::before { content:''; width:28px; height:1px; background:var(--coral); }
+    h1 { max-width:560px; margin:18px 0 22px; font-family:'Playfair Display',serif; font-size:clamp(3.55rem,7vw,7.4rem); font-weight:500; letter-spacing:-.055em; line-height:.9; } h1 em { color:var(--coral); font-weight:500; }
+    .intro { max-width:390px; margin:0; color:var(--muted); font-size:1rem; line-height:1.75; } .signature { display:block; margin-top:28px; font-family:'Playfair Display',serif; font-size:1.35rem; font-style:italic; }
+    .card-area { position:relative; min-height:540px; display:grid; place-items:center; } .card-area::before { content:''; position:absolute; width:290px; height:290px; border-radius:50%; background:var(--yellow); opacity:.7; filter:blur(1px); transform:translate(92px,-80px); } .card-area::after { content:'✦'; position:absolute; color:var(--coral); font-size:2.7rem; top:24px; right:3%; transform:rotate(16deg); }
+    .card { position:relative; width:min(100%,440px); min-height:500px; padding:35px; background:#fffaf4; border:1px solid rgba(46,45,43,.09); box-shadow:var(--shadow); transform:rotate(2.4deg); transition:transform .45s ease,box-shadow .45s ease; } .card:hover { transform:rotate(0deg) translateY(-6px); box-shadow:0 34px 80px rgba(100,65,35,.2); }
+    .card::before { content:''; position:absolute; inset:13px; border:1px solid var(--line); pointer-events:none; } .card-inner { position:relative; z-index:1; min-height:428px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; text-align:center; }
+    .cake { width:126px; height:126px; display:grid; place-items:center; margin-top:7px; border-radius:50%; background:#f8e4b9; font-size:4.1rem; transform:rotate(-5deg); } .card-label { margin:28px 0 4px; color:var(--muted); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; } .card h2 { max-width:280px; margin:0; font-family:'Playfair Display',serif; font-size:2.45rem; font-weight:500; line-height:1.02; }
+    .seal { width:70px; height:70px; display:grid; place-items:center; border:1px solid var(--coral); border-radius:50%; color:var(--coral-dark); font-family:'Playfair Display',serif; font-size:1.35rem; font-style:italic; transform:rotate(-9deg); }
+    .reveal-button { border:0; padding:0; background:transparent; color:var(--ink); font:inherit; cursor:pointer; } .reveal-button .seal { transition:background .25s ease,color .25s ease,transform .25s ease; } .reveal-button:hover .seal,.reveal-button:focus-visible .seal { color:#fffaf4; background:var(--coral); transform:rotate(0deg) scale(1.07); outline:none; } .hint { color:var(--muted); font-size:.73rem; letter-spacing:.11em; text-transform:uppercase; }
+    .message { position:absolute; inset:35px; z-index:3; display:grid; place-items:center; padding:35px; background:#fffaf4; border:1px solid var(--line); text-align:center; opacity:0; pointer-events:none; transform:scale(.95); transition:opacity .45s ease,transform .45s ease; } .message.is-open { opacity:1; pointer-events:auto; transform:scale(1); } .message .heart { color:var(--coral); font-size:2rem; } .message h3 { margin:16px 0 12px; font-family:'Playfair Display',serif; font-size:2.55rem; font-weight:500; line-height:1; } .message p { max-width:290px; margin:0; color:var(--muted); line-height:1.75; } .close-message { margin-top:26px; border:0; border-bottom:1px solid var(--coral); padding:5px 0; background:none; color:var(--coral-dark); font:inherit; cursor:pointer; }
+    .chapter-nav { display:flex; gap:8px; align-items:center; }
+    .chapter-nav button { border:1px solid var(--line); border-radius:999px; padding:8px 13px; background:rgba(255,250,244,.55); color:var(--muted); font:inherit; font-size:.72rem; cursor:pointer; transition:background .2s ease,color .2s ease,transform .2s ease; }
+    .chapter-nav button:hover, .chapter-nav button.is-active { background:var(--coral); border-color:var(--coral); color:#fffaf4; transform:translateY(-2px); }
+    .chapter { display:none; animation:chapter-in .5s ease both; }
+    .chapter.is-active { display:block; }
+    .chapter-heading { max-width:600px; margin-bottom:32px; }
+    .chapter-heading h2 { margin:16px 0 12px; font-family:'Playfair Display',serif; font-size:clamp(2.8rem,5vw,5rem); font-weight:500; letter-spacing:-.045em; line-height:.95; }
+    .chapter-heading p { max-width:470px; color:var(--muted); line-height:1.7; }
+    .reason-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .reason-card { min-height:190px; padding:25px; border:1px solid var(--line); background:rgba(255,250,244,.74); box-shadow:0 14px 36px rgba(100,65,35,.06); transition:transform .25s ease,background .25s ease; }
+    .reason-card:nth-child(2) { transform:translateY(25px); background:#f9dfd5; } .reason-card:nth-child(3) { background:#f8e4b9; }
+    .reason-card:hover { transform:translateY(-7px) rotate(-1deg); background:#fffaf4; }
+    .reason-number { color:var(--coral-dark); font-family:'Playfair Display',serif; font-size:1.4rem; font-style:italic; } .reason-card h3 { margin:28px 0 8px; font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:500; } .reason-card p { margin:0; color:var(--muted); font-size:.88rem; line-height:1.55; }
+    .wish-board { display:grid; grid-template-columns:1.05fr .95fr; gap:18px; align-items:stretch; }
+    .wish-panel { padding:32px; background:#fffaf4; border:1px solid var(--line); box-shadow:var(--shadow); } .wish-panel h3 { margin:0 0 14px; font-family:'Playfair Display',serif; font-size:2.15rem; font-weight:500; line-height:1; } .wish-panel p { color:var(--muted); line-height:1.7; }
+    .wish-list { display:grid; gap:12px; margin:24px 0 0; padding:0; list-style:none; } .wish-list li { display:flex; gap:12px; align-items:center; padding-bottom:12px; border-bottom:1px solid var(--line); color:var(--muted); font-size:.9rem; } .wish-list li::before { content:'✦'; color:var(--coral); }
+    .fortune { display:flex; min-height:100%; flex-direction:column; justify-content:space-between; background:var(--coral); color:#fffaf4; } .fortune p { color:#fffaf4; opacity:.82; } .fortune-button { align-self:flex-start; border:1px solid rgba(255,250,244,.7); padding:10px 15px; background:transparent; color:#fffaf4; font:inherit; cursor:pointer; } .fortune-button:hover { background:#fffaf4; color:var(--coral-dark); } .fortune-result { min-height:52px; margin-top:24px; font-family:'Playfair Display',serif; font-size:1.5rem; line-height:1.25; }
+    .final-note { max-width:700px; padding:clamp(30px,6vw,72px); border:1px solid var(--line); background:#fffaf4; box-shadow:var(--shadow); text-align:center; } .final-note .heart { color:var(--coral); font-size:2.4rem; } .final-note h2 { margin:18px 0; font-family:'Playfair Display',serif; font-size:clamp(2.6rem,6vw,5.5rem); font-weight:500; letter-spacing:-.05em; line-height:.9; } .final-note p { max-width:470px; margin:0 auto; color:var(--muted); line-height:1.8; } .restart-button { margin-top:28px; border:0; border-bottom:1px solid var(--coral); padding:6px 0; background:none; color:var(--coral-dark); font:inherit; cursor:pointer; }
+    .confetti { position:fixed; z-index:10; width:8px; height:14px; pointer-events:none; animation:fall 1.6s cubic-bezier(.2,.8,.3,1) forwards; } .footer-note { position:fixed; bottom:22px; left:0; width:100%; text-align:center; color:var(--muted); font-size:.72rem; letter-spacing:.08em; }
+    @keyframes rise { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } } @keyframes chapter-in { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } } @keyframes fall { from { opacity:1; transform:translate3d(0,-20px,0) rotate(0); } to { opacity:0; transform:translate3d(var(--drift),100vh,0) rotate(520deg); } } @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+    @media (max-width:760px) { .page-shell { width:min(100% - 34px,560px); } .topbar { padding:20px 0; align-items:flex-start; } .chapter-nav { flex-wrap:wrap; justify-content:flex-end; max-width:210px; } main { display:block; padding:45px 0 75px; } .hero { display:block; } h1 { font-size:clamp(3.7rem,17vw,6rem); margin-top:14px; } .intro { font-size:.93rem; } .signature { margin-top:18px; } .card-area { min-height:500px; margin-top:14px; } .card { min-height:460px; padding:27px; } .card-inner { min-height:405px; } .message { inset:27px; padding:25px; } .reason-grid,.wish-board { grid-template-columns:1fr; } .reason-card:nth-child(2) { transform:none; } .reason-card:hover { transform:translateY(-5px); } .footer-note { position:static; padding-bottom:22px; } }
+    .page-shell { display:none; }
+    #react-root { min-height:100vh; }
+    .react-app { min-height:100vh; position:relative; overflow:hidden; background:linear-gradient(135deg,#fff8ef 0%,#fbe3dd 48%,#f8d77b 140%); }
+    .react-app::before { content:''; position:absolute; width:520px; height:520px; top:-260px; right:-130px; border-radius:50%; background:#ef806a; opacity:.18; }
+    .react-nav { position:relative; z-index:2; }
+    .react-brand { color:var(--ink); font-family:'Playfair Display',serif; font-size:1.45rem; font-style:italic; }
+    .react-tab { border:1px solid rgba(46,45,43,.16)!important; border-radius:999px!important; color:var(--ink)!important; background:rgba(255,250,244,.5)!important; }
+    .react-tab.active, .react-tab:hover { background:var(--ink)!important; color:#fffaf4!important; }
+    .react-hero { position:relative; z-index:1; min-height:calc(100vh - 92px); padding-top:clamp(40px,8vh,100px); }
+    .react-eyebrow { color:var(--coral-dark); letter-spacing:.18em; font-size:.72rem; text-transform:uppercase; font-weight:600; }
+    .react-title { color:var(--ink); font-family:'Playfair Display',serif; font-size:clamp(3.4rem,7vw,6.7rem); letter-spacing:-.06em; line-height:.88; }
+    .react-title em { color:var(--coral); }
+    .react-copy { color:var(--muted); max-width:430px; line-height:1.8; }
+    .react-card { border:0; border-radius:1.25rem; background:rgba(255,250,244,.86); box-shadow:0 28px 70px rgba(100,65,35,.18); transform:rotate(2deg); transition:transform .3s ease; }
+    .react-card:hover { transform:rotate(0) translateY(-8px); }
+    .react-orb { width:130px; height:130px; display:grid; place-items:center; margin:auto; border-radius:50%; background:#f8e4b9; font-size:4rem; }
+    .react-prompt { color:var(--muted); letter-spacing:.12em; font-size:.7rem; text-transform:uppercase; }
+    .react-card h2, .react-section-title, .react-modal-title { color:var(--ink); font-family:'Playfair Display',serif; }
+    .react-card h2 { font-size:2.55rem; }
+    .react-section { position:relative; z-index:1; min-height:calc(100vh - 92px); padding-top:clamp(44px,9vh,110px); }
+    .react-section-title { font-size:clamp(3rem,6vw,5.6rem); letter-spacing:-.055em; line-height:.9; }
+    .react-tile { min-height:220px; border:0; border-radius:1rem; box-shadow:0 18px 40px rgba(100,65,35,.11); }
+    .react-tile:nth-child(2) { transform:translateY(24px); background:#f8d7cf!important; } .react-tile:nth-child(3) { background:#f8e4b9!important; }
+    .react-tile h3 { color:var(--ink); font-family:'Playfair Display',serif; }
+    .react-fortune { min-height:310px; border-radius:1rem; background:var(--coral); color:#fffaf4; }
+    .react-fortune-text { min-height:72px; font-family:'Playfair Display',serif; font-size:1.6rem; }
+    .react-secret { max-width:720px; border-radius:1.2rem; background:#fffaf4; box-shadow:0 25px 70px rgba(100,65,35,.15); }
+    .react-secret h2 { font-family:'Playfair Display',serif; font-size:clamp(3rem,7vw,6rem); line-height:.88; }
+    .react-footer { color:var(--muted); font-size:.7rem; letter-spacing:.1em; }
+    .react-confetti { position:fixed; z-index:20; width:8px; height:15px; animation:fall 1.7s ease forwards; }
+    @media (max-width:767px) { .react-nav .navbar-nav { padding-top:14px; } .react-hero,.react-section { padding-top:42px; } .react-tile:nth-child(2) { transform:none; } }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar"><span class="monogram">for you,</span><nav class="chapter-nav" aria-label="Birthday chapters"><button class="is-active" data-chapter="welcome" type="button">hello</button><button data-chapter="reasons" type="button">reasons</button><button data-chapter="wishes" type="button">wishes</button><button data-chapter="secret" type="button">secret</button></nav></header>
+    <main>
+      <section class="chapter is-active" id="welcome" aria-labelledby="welcomeTitle"><div class="hero"><div class="copy"><span class="eyebrow">Today is yours, Boba</span><h1 id="welcomeTitle">Happy birthday,<br><em>Boba, my favorite</em><br>person.</h1><p class="intro">Some people make ordinary days feel a little brighter. You do that without even trying. So this tiny corner of the internet is just for you.</p><span class="signature">with a little extra fondness</span></div><div class="card-area"><article class="card" aria-label="Birthday card"><div class="card-inner"><div><div class="cake" aria-hidden="true">🎂</div><p class="card-label">one more trip around the sun</p><h2>Make a wish.<br>Make it a good one.</h2></div><button class="reveal-button" id="openWish" type="button" aria-label="Open your birthday message"><span class="seal">open</span></button><span class="hint">tap the seal</span></div><div class="message" id="message" role="dialog" aria-modal="true" aria-labelledby="messageTitle"><div><div class="heart" aria-hidden="true">♥</div><h3 id="messageTitle">You deserve<br>the loveliest year.</h3><p>More laughter than you can fit in a day, more little adventures, and every good thing that has your name on it. I hope today reminds you how wonderfully special you are.</p><button class="close-message" id="closeWish" type="button">keep this little wish</button></div></div></article></div></div></section>
+      <section class="chapter" id="reasons" aria-labelledby="reasonsTitle"><div class="chapter-heading"><span class="eyebrow">a tiny list</span><h2 id="reasonsTitle">Three things<br>I adore about you.</h2><p>There are obviously more than three. This is just the short version, because I wanted to leave room for the surprises.</p></div><div class="reason-grid"><article class="reason-card"><span class="reason-number">01</span><h3>Your laugh</h3><p>It has a way of making everyone nearby feel like they are in on the best joke.</p></article><article class="reason-card"><span class="reason-number">02</span><h3>Your magic</h3><p>You make normal moments feel like little stories worth remembering.</p></article><article class="reason-card"><span class="reason-number">03</span><h3>Your heart</h3><p>Kind, bright, and quietly wonderful. It is impossible not to notice.</p></article></div></section>
+      <section class="chapter" id="wishes" aria-labelledby="wishesTitle"><div class="chapter-heading"><span class="eyebrow">for the year ahead</span><h2 id="wishesTitle">A few wishes<br>with your name on them.</h2></div><div class="wish-board"><article class="wish-panel"><h3>May this year bring you...</h3><p>The kind of days that make you pause and think, “I really like my life.”</p><ul class="wish-list"><li>Unexpected good news</li><li>Plans that turn into stories</li><li>Peace in all the right places</li><li>Someone who makes you feel adored</li></ul></article><article class="wish-panel fortune"><div><h3>One more thing</h3><p>Tap below for a tiny fortune made especially for today.</p><div class="fortune-result" id="fortuneResult">Your little message is waiting.</div></div><button class="fortune-button" id="fortuneButton" type="button">reveal my fortune</button></article></div></section>
+      <section class="chapter" id="secret" aria-labelledby="secretTitle"><div class="final-note"><div class="heart" aria-hidden="true">♥</div><h2 id="secretTitle">Boba...<br>you are my favorite.</h2><p>This was supposed to be a birthday website, but I may have used it as an excuse to say something I have been thinking for a while. You are very, very easy to like.</p><button class="restart-button" id="restartButton" type="button">start the surprise again</button></div></section>
+    </main><div class="footer-note">made with care · birthday edition</div>
+  </div>
+  <div id="react-root"></div>
+  <script>
+    const openWish=document.getElementById('openWish'); const closeWish=document.getElementById('closeWish'); const message=document.getElementById('message');
+    const chapterButtons=document.querySelectorAll('[data-chapter]'); const chapters=document.querySelectorAll('.chapter');
+    function showChapter(chapterId){ chapters.forEach((chapter)=>chapter.classList.toggle('is-active',chapter.id===chapterId)); chapterButtons.forEach((button)=>button.classList.toggle('is-active',button.dataset.chapter===chapterId)); window.scrollTo({top:0,behavior:'smooth'}); }
+    chapterButtons.forEach((button)=>button.addEventListener('click',()=>showChapter(button.dataset.chapter)));
+    function makeConfetti(){ const colors=['#e66e58','#f3c96b','#f4c6b9','#2e2d2b']; for(let index=0;index<34;index+=1){ const piece=document.createElement('span'); piece.className='confetti'; piece.style.left=`${35+Math.random()*30}%`; piece.style.top=`${18+Math.random()*8}%`; piece.style.backgroundColor=colors[index%colors.length]; piece.style.setProperty('--drift',`${(Math.random()-.5)*420}px`); piece.style.animationDelay=`${Math.random()*.24}s`; document.body.appendChild(piece); piece.addEventListener('animationend',()=>piece.remove()); } }
+    openWish.addEventListener('click',()=>{ message.classList.add('is-open'); makeConfetti(); closeWish.focus(); }); closeWish.addEventListener('click',()=>{ message.classList.remove('is-open'); openWish.focus(); }); document.addEventListener('keydown',(event)=>{ if(event.key==='Escape'&&message.classList.contains('is-open')) closeWish.click(); });
+    const fortunes=['A beautiful surprise is closer than you think.','This is your year to say yes to the good things.','Someone is very lucky to know you.','Your next chapter is going to look lovely on you.']; const fortuneButton=document.getElementById('fortuneButton'); const fortuneResult=document.getElementById('fortuneResult'); fortuneButton.addEventListener('click',()=>{ fortuneResult.textContent=fortunes[Math.floor(Math.random()*fortunes.length)]; makeConfetti(); });
+    document.getElementById('restartButton').addEventListener('click',()=>showChapter('welcome'));
+  </script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const { useState } = React;
+
+    function BirthdayApp() {
+      const [page, setPage] = useState('hello');
+      const [messageOpen, setMessageOpen] = useState(false);
+      const [secretOpen, setSecretOpen] = useState(false);
+      const [fortune, setFortune] = useState('Your little message is waiting.');
+      const pages = ['hello', 'reasons', 'wishes', 'secret'];
+      const fortunes = ['A beautiful surprise is closer than you think.', 'This is your year to say yes to the good things.', 'Someone is very lucky to know you.', 'Your next chapter is going to look lovely on you.'];
+
+      function celebrate() {
+        const colors = ['#e66e58', '#f3c96b', '#f4c6b9', '#2e2d2b'];
+        for (let index = 0; index < 30; index += 1) {
+          const piece = document.createElement('span');
+          piece.className = 'react-confetti';
+          piece.style.left = `${35 + Math.random() * 30}%`;
+          piece.style.top = `${12 + Math.random() * 12}%`;
+          piece.style.backgroundColor = colors[index % colors.length];
+          piece.style.setProperty('--drift', `${(Math.random() - .5) * 420}px`);
+          piece.addEventListener('animationend', () => piece.remove());
+          document.body.appendChild(piece);
+        }
+      }
+
+      function selectPage(nextPage) {
+        setPage(nextPage);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      return <div className="react-app">
+        <nav className="react-nav navbar navbar-expand-md px-3 px-md-5 py-4">
+          <div className="container-fluid"><span className="react-brand">for you,</span><div className="navbar-nav ms-auto flex-row gap-2 flex-wrap justify-content-end">
+            {pages.map((item) => <button key={item} className={`react-tab btn btn-sm px-3 ${page === item ? 'active' : ''}`} onClick={() => selectPage(item)}>{item}</button>)}
+          </div></div>
+        </nav>
+
+        {page === 'hello' && <section className="react-hero container-fluid px-4 px-md-5"><div className="row align-items-center g-5"><div className="col-lg-6"><div className="react-eyebrow mb-3">Today is yours, Boba</div><h1 className="react-title mb-4">Happy birthday,<br /><em>Boba, my favorite</em><br />person.</h1><p className="react-copy fs-6">Some people make ordinary days feel a little brighter. You do that without even trying. So this tiny corner of the internet is just for you.</p><p className="mt-4 fst-italic" style={{fontFamily:"'Playfair Display', serif",fontSize:'1.3rem'}}>with a little extra fondness</p></div><div className="col-lg-5 ms-auto"><div className="react-card card p-4 p-md-5 text-center"><div className="react-orb mb-4">🎂</div><div className="react-prompt mb-2">one more trip around the sun</div><h2 className="mb-5">Make a wish.<br />Make it a good one.</h2><button className="btn btn-outline-danger rounded-circle mx-auto d-flex align-items-center justify-content-center" style={{width:76,height:76,fontFamily:"'Playfair Display', serif"}} onClick={() => { setMessageOpen(true); celebrate(); }}>open</button><small className="text-secondary mt-3">tap the seal</small></div></div></div></section>}
+
+        {page === 'reasons' && <section className="react-section container px-4"><div className="mb-5"><div className="react-eyebrow mb-3">a tiny list</div><h2 className="react-section-title mb-3">Three things<br />I adore about you.</h2><p className="react-copy">There are obviously more than three. This is just the short version, because I wanted to leave room for the surprises.</p></div><div className="row g-4"><div className="col-md-4"><article className="react-tile card p-4 bg-white"><span className="text-danger fst-italic">01</span><h3 className="mt-4">Your laugh</h3><p className="text-secondary">It has a way of making everyone nearby feel like they are in on the best joke.</p></article></div><div className="col-md-4"><article className="react-tile card p-4"><span className="text-danger fst-italic">02</span><h3 className="mt-4">Your magic</h3><p className="text-secondary">You make normal moments feel like little stories worth remembering.</p></article></div><div className="col-md-4"><article className="react-tile card p-4"><span className="text-danger fst-italic">03</span><h3 className="mt-4">Your heart</h3><p className="text-secondary">Kind, bright, and quietly wonderful. It is impossible not to notice.</p></article></div></div></section>}
+
+        {page === 'wishes' && <section className="react-section container px-4"><div className="mb-5"><div className="react-eyebrow mb-3">for the year ahead</div><h2 className="react-section-title">A few wishes<br />with your name on them.</h2></div><div className="row g-4"><div className="col-lg-6"><article className="card border-0 shadow-sm p-4 p-md-5 h-100"><h3 className="react-section-title fs-2 mb-3">May this year bring you...</h3><p className="react-copy">The kind of days that make you pause and think, “I really like my life.”</p><ul className="list-group list-group-flush mt-4"><li className="list-group-item bg-transparent px-0">✦ Unexpected good news</li><li className="list-group-item bg-transparent px-0">✦ Plans that turn into stories</li><li className="list-group-item bg-transparent px-0">✦ Peace in all the right places</li><li className="list-group-item bg-transparent px-0">✦ Someone who makes you feel adored</li></ul></article></div><div className="col-lg-6"><article className="react-fortune p-4 p-md-5 d-flex flex-column justify-content-between"><div><h3 className="react-section-title text-white fs-2 mb-3">One more thing</h3><p>Tap below for a tiny fortune made especially for today.</p><div className="react-fortune-text mt-4">{fortune}</div></div><button className="btn btn-light align-self-start" onClick={() => { setFortune(fortunes[Math.floor(Math.random() * fortunes.length)]); celebrate(); }}>reveal my fortune</button></article></div></div></section>}
+
+        {page === 'secret' && <section className="react-section container px-4 d-flex justify-content-center align-items-start"><article className="react-secret text-center p-4 p-md-5">{!secretOpen ? <><div className="display-5 text-danger">?</div><h2 className="mt-3 mb-4">There is one<br />last secret...</h2><p className="react-copy mx-auto">It is small, sincere, and meant only for Boba. The final page is locked until you are ready.</p><button className="btn btn-danger rounded-pill px-4 mt-3" onClick={() => { setSecretOpen(true); celebrate(); }}>open the secret</button></> : <><div className="display-5 text-danger">♥</div><h2 className="mt-3 mb-4">Boba...<br />you are my favorite.</h2><p className="react-copy mx-auto">This was supposed to be a birthday website, but I may have used it as an excuse to say something I have been thinking for a while. You are very, very easy to like.</p><button className="btn btn-link text-danger mt-3" onClick={() => selectPage('hello')}>start the surprise again</button></>}</article></section>}
+
+        {messageOpen && <div className="modal d-block" tabIndex="-1" role="dialog" aria-modal="true" onClick={() => setMessageOpen(false)}><div className="modal-dialog modal-dialog-centered" onClick={(event) => event.stopPropagation()}><div className="modal-content border-0 rounded-4 p-3"><div className="modal-body text-center p-4"><div className="display-5 text-danger">♥</div><h2 className="react-modal-title mt-3">You deserve<br />the loveliest year.</h2><p className="react-copy mx-auto mt-3">More laughter than you can fit in a day, more little adventures, and every good thing that has your name on it.</p><button className="btn btn-outline-danger mt-3" onClick={() => setMessageOpen(false)}>keep this little wish</button></div></div></div></div>}
+        <footer className="react-footer text-center py-4">made with care · birthday edition · built with React + Bootstrap</footer>
+      </div>;
+    }
+
+    ReactDOM.createRoot(document.getElementById('react-root')).render(<BirthdayApp />);
+  </script>
+</body>
+</html>
